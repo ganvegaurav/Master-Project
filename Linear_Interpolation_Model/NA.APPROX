@@ -1,0 +1,27 @@
+head(data)
+nrow(data)
+?approxfun
+
+
+approx_data <- data.frame()
+approx_data <- data[,1]
+head(approx_data)
+length(approx_data)
+approx_data <- data.frame(approx_data)
+head(approx_data)
+colnames(approx_data)[1] <- "Timestamp"
+approx_data[,2] <- approxfun(1:nrow(data), data[,2])(1:nrow(data))
+head(approx_data)
+colnames(approx_data)[2] <- "Supply Temp. setp"
+
+approx_data[,3] <- approxfun(1:nrow(data), data[,3])(1:nrow(data))
+head(approx_data)
+colnames(approx_data)[3] <- "System_supply_temperature"
+
+approx_data[,4] <- approxfun(1:nrow(data), data[,4])(1:nrow(data))
+head(approx_data)
+colnames(approx_data)[4] <- "Return_Temperature"
+
+approx_data[,5] <- approxfun(1:nrow(data), data[,5])(1:nrow(data))
+head(approx_data)
+colnames(approx_data)[5] <- "System_Power"
